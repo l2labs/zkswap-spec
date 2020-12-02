@@ -44,7 +44,7 @@ In total 128 ERC20 tokens are supported with index from 0 to 127. The index 0 is
 
 #### b. LP ERC20 token
 
-In total 2,048 – 128 = 1,920 LP ERC20 tokens are supported and LP ERC20 tokens from index 128 to index 2,047.
+In total 2,048 – 128 + 1 = 1,921 LP ERC20 tokens are supported and LP ERC20 tokens from index 128 to index 2,048.
 
 In Layer2, each token is assigned one ID. The ID is synchronized between L1 and L2 through ZK rollup transactions.
 
