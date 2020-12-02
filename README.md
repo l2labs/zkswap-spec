@@ -13,7 +13,7 @@ The swap protocol is exactly same as Uniswap, but the swap path is limited to 1.
 
 The whole Layer 2 state is represented by one Merkle tree, which is leveled by Account and Token. The height of Account Merkle tree is `ACCOUNT_MERKLE_DEPTH` and the height of Token Merkle tree is `TOKEN_MERKLE_DEPTH`.
 
-<img src="./figs/account.png" alt="account" style="zoom:36%;" />
+![account](./figs/account.png)
 
 The Account node include the following fields:
 
@@ -56,13 +56,13 @@ There are four swap related operations. **CreatePair** helps create the swap pai
 
 The CreatePair operation starts from a L1 transaction. The ZKSwap smart contract helps create one pair for the ERC20 smart contract and one associated LP token. The pair ERC20 smart contract address is used in L2 to identify the swap pair. And the LP token address is used in L2 binding with the LP token ID.
 
-<img src="./figs/create_pair.png" alt="create_pair" style="zoom:36%;" />
+![create_pair](./figs/create_pair.png)
 
 #### b. AddLiquidity
 
 When one pair is created, a user can add liquidity to the pair by providing the two specified assets. The AddLiqudity operation starts from L2.
 
-<img src="./figs/add_liquidity.png" alt="add_liquidity" style="zoom:36%;" />
+![add_liquidity](./figs/add_liquidity.png)
 
 By adding liquidity, one account is rewarded with the liquidity token. The liquidity token is maintained in L2, and the liquidity token can be withdrawn to L1. 
 
@@ -74,21 +74,21 @@ Remove liquidity can be used to remove specified tokens from one pair. The Remov
 
 Swap is used to swap one token for another token, in the one pair account. From one pair account, the swap ratio depends on balances of the two specified tokens.
 
-<img src="./figs/swap.png" alt="swap" style="zoom:36%;" />
+![swap](figs/swap.png)
 
 ### 5. Circuit Design
 
 The global state of L2 is updated by transaction execution and verified again by circuit. When one transaction is applied on circuit, it is "divided" into OperationBranch and Operation Arguments. OperationBranch describes the Merkel path. Operation Arguments describe all other information besides branches.
 
-<img src="./figs/witness_logic.png" alt="witness_logic" style="zoom:30%;" />
+![witness_logic](./figs/witness_logic.png)
 
 Operation is an important structure, which is the "smallest" circuit block.
 
-<img src="./figs/operation.png" alt="operation" style="zoom:36%;" />
+![operation](./figs/operation.png)
 
 One logic transaction is split into several operations. And one block can support dynamically different operation numbers:
 
-<img src="./figs/circuit_proof_arch.png" alt="operation" style="zoom:30%;" />
+![circuit_proof_arch](./figs/circuit_proof_arch.png)
 
 #### 5.a CreatePair
 
@@ -96,7 +96,7 @@ The CreatePair circuit tries to create one pair account with the specified token
 
 #### 5.b AddLiquidity
 
-<img src="./figs/add_liquidity_branch.png" alt="add_liquidity_branch" style="zoom:36%;" />
+![add_liquidity_branch](./figs/add_liquidity_branch.png)
 
 #### 5.c RemoveLiquidity
 
@@ -104,7 +104,7 @@ The RemoveLiquidity operation is the reverse of AddLiquidity.
 
 #### 5.d Swap
 
-<img src="./figs/swap_branch.png" alt="swap_branch" style="zoom:36%;" />
+![swap_branch](./figs/swap_branch.png)
 
 ### 6. Fee Model
 
@@ -135,13 +135,13 @@ Basically, there are two kinds of assets from the exodus mode point of view: one
 
 For normal ERC20 token, one Merkle path should be verified with the latest Merkle root. 
 
-<img src="./figs/exit_normal.png" alt="exit_normal" style="zoom:36%;" />
+![exit_normal](./figs/exit_normal.png)
 
 #### b. Liquidity Tokens
 
 For liquidity tokens, more Merkle paths should be provided. The information of one specified pair should be correct. And the LP token of one account is correct.
 
-<img src="./figs/exit_pair.png" alt="exit_pair" style="zoom:36%;" />
+![exit_pair](./figs/exit_pair.png)
 
 
 
