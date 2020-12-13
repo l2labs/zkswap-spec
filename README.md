@@ -42,7 +42,7 @@ The Account "state" is calculated as follows:
 
 ### 3. Token Management
 
-The ZKSwap smart contract maintains a single list for tokens. The list is divided into two parts: one is for normal ETH/ERC20 tokens and the other is for LP ERC20 tokens. **Both tokens can be transferred in L1and L2. More, both tokens can be deposited and withdrawed between L1 and L2.**
+The ZKSwap smart contract maintains a single list for tokens. The list is divided into two parts: one is for normal ETH/ERC20 tokens and the other is for LP ERC20 tokens. **Both tokens can be transferred in L1 and L2. And both tokens can be deposited and withdrawn between L1 and L2.**
 
 #### a. Normal ERC20 token
 
