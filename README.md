@@ -38,7 +38,7 @@ ZKSwap protocol supports two account types: one is Account and the other is Pair
 
 The Account "state" is calculated as follows:
 
-![account_state](./figs/account_state.png
+![account_state](./figs/account_state.png)
 
 ### 3. Token Management
 
